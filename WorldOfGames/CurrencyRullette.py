@@ -2,7 +2,7 @@ import requests
 import json
 import ast
 import random
-
+from utils import err_report
 
 def get_money_interval(difficulty):
     interval = 6 - difficulty
@@ -19,9 +19,11 @@ def get_guess_from_user():
         except ValueError:
             error = 1
             print("You've entered a wrong value \n")
+            err_report()
         except EOFError:
             error = 1
             print("You've entered a wrong value \n")
+            err_report()
     return guess
 
 

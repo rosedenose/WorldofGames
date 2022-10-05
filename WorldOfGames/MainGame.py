@@ -7,7 +7,9 @@ import Live
 import Score
 import MainScores
 from selenium import webdriver
-
+err = open("err.txt", "w")
+err.write("0")
+err.close()
 name = str(input("Hello please enter your name: "))
 print(Live.welcome(name))
 game, difficulty = Live.load_game()
@@ -26,8 +28,7 @@ elif game == 4:
 if res == True:
     print("Hooray, you've won!!!")
     score = Score.add_score(difficulty, name)
-    print (score)
-    #MainScores.present_score(name)
+    #MainScores.present_score(name,status)
     #my_driver = webdriver.chrome(excutable_path="C:/Users/lysen/Downloads/chromedriver_win32/chromedriver.exe")
     #my_driver.get("http://127.0.0.1:5000/success")
 elif res == False:
