@@ -5,6 +5,8 @@ import CurrencyRullette
 import SecretGame
 import Live
 import Score
+import MainScores
+from selenium import webdriver
 
 name = str(input("Hello please enter your name: "))
 print(Live.welcome(name))
@@ -26,3 +28,8 @@ if res == True:
     Score.add_score(difficulty, name)
 elif res == False:
     print("uh, you lost. Try again next time")
+
+# Show scoring
+#MainScores.present_score(name)
+#my_driver = webdriver.chrome(excutable_path="C:/Users/lysen/Downloads/chromedriver_win32/chromedriver.exe")
+#my_driver.get("http://127.0.0.1:5000/success")
