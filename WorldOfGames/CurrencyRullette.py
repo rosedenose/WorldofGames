@@ -39,6 +39,7 @@ def play(difficulty):
     response = requests.get(url)
     if str(response) != "<Response [200]>":
         print("there is an issue with internet connection please try again later\n")
+        err_report()
     lines = ast.literal_eval(jprint(response.json()))
     dollar = lines['usd']
     conversion = dollar['ils']
