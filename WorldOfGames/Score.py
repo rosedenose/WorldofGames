@@ -16,7 +16,6 @@ def add_score(difficulty, name):
                 score = re.sub(name, "", line)
                 score = int(score.strip()) + difficulty * 3 + 5
                 updated_score.append(f"{name} {score}\n")
-                print(f"{name} has {score} points")
                 score_found = 1
             else:
                 updated_score.append(line)
