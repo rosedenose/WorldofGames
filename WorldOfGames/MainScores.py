@@ -55,4 +55,4 @@ def present_score(player):
     app.run(host='0.0.0.0', debug=True, port=5000)
 
 
-present_score("Alexey")
+#present_score("Alexey")

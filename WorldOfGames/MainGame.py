@@ -25,11 +25,13 @@ elif game == 4:
 # Scoring
 if res == True:
     print("Hooray, you've won!!!")
-    Score.add_score(difficulty, name)
+    score = Score.add_score(difficulty, name)
+    print (score)
+    #MainScores.present_score(name)
+    #my_driver = webdriver.chrome(excutable_path="C:/Users/lysen/Downloads/chromedriver_win32/chromedriver.exe")
+    #my_driver.get("http://127.0.0.1:5000/success")
 elif res == False:
     print("uh, you lost. Try again next time")
 
 # Show scoring
-#MainScores.present_score(name)
-#my_driver = webdriver.chrome(excutable_path="C:/Users/lysen/Downloads/chromedriver_win32/chromedriver.exe")
-#my_driver.get("http://127.0.0.1:5000/success")
+
