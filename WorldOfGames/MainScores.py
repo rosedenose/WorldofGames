@@ -3,6 +3,7 @@ import re
 from utils import err_report
 
 
+
 def read_score(name):
     your_score = 0
     scores = []
@@ -23,13 +24,16 @@ def read_score(name):
         scores.close()
     return your_score
 
-def present_score(player,status):
+
+def present_score(player):
     err_log = open("err.txt")
     status = err_log.readlines()
+    # print(status[0])
     app = Flask(__name__)
     SCORE = read_score(player)
     ERROR = 'There was an error somewhere along the way. '
-    if status == 0:
+
+    if str(status[0]) == "0":
         @app.route('/')
         def success():
             a = f"""<html>    
@@ -41,7 +45,7 @@ def present_score(player,status):
                         </body>
                     </html>"""
             return a, 200
-    elif status != 0:
+    elif str(status[0]) != "0":
         @app.route('/')
         def failure():
             b = f"""<html>
@@ -53,7 +57,7 @@ def present_score(player,status):
                         </body>
                     </html>"""
             return b, 200
-    app.run(host='0.0.0.0', debug=True, port=5000)
+    app.run(host='0.0.0.0', port=4444)
+    print("after flask")
 
-
-#present_score("Alexey")
+# present_score("Alexey")
