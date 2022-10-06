@@ -1,7 +1,8 @@
 from flask import Flask
 import re
 from utils import err_report
-
+import threading
+from selenium import webdriver
 
 
 def read_score(name):
@@ -19,7 +20,6 @@ def read_score(name):
             if name in str(line):
                 your_score = re.sub(name, "", line)
             else:
-                print("can't find your name in the file")
                 err_report()
         scores.close()
     return your_score
@@ -30,6 +30,7 @@ def present_score(player):
     status = err_log.readlines()
     # print(status[0])
     app = Flask(__name__)
+    print(__name__)
     SCORE = read_score(player)
     ERROR = 'There was an error somewhere along the way. '
 
@@ -57,7 +58,15 @@ def present_score(player):
                         </body>
                     </html>"""
             return b, 200
-    app.run(host='0.0.0.0', port=4444)
+    if __name__ == "MainScores":
+        first_thread = threading.Thread(target=app.run(host='0.0.0.0', port=4444))
+        second_thread = threading.Thread(target=show_score())
+        second_thread.start()
+        first_thread.start()
     print("after flask")
 
+
+def show_score():
+    my_driver = webdriver.Chrome("chromedriver.exe")
+    my_driver.get("http://127.0.0.1:4444")
 # present_score("Alexey")

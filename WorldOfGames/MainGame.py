@@ -1,4 +1,3 @@
-import os
 import GuessGame
 import MemoryGame
 import CurrencyRullette
@@ -7,6 +6,8 @@ import Live
 import Score
 import MainScores
 from selenium import webdriver
+
+
 err = open("err.txt", "w")
 err.write("0")
 err.close()
@@ -28,10 +29,7 @@ elif game == 4:
 if res == True:
     print("Hooray, you've won!!!")
     Score.add_score(difficulty, name)
-
     MainScores.present_score(name)
-    my_driver = webdriver.chrome(excutable_path="C:/Users/lysen/Downloads/chromedriver_win32/chromedriver.exe")
-    my_driver.get("http://127.0.0.1:5000")
 elif res == False:
     print("uh, you lost. Try again next time")
 
