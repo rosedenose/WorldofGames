@@ -32,5 +32,6 @@ if res == True:
     MainScores.present_score(name)
 elif res == False:
     print("uh, you lost. Try again next time")
+    MainScores.present_score(name)
 
 # Show scoring

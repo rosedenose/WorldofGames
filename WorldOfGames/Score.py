@@ -5,7 +5,6 @@ def add_score(difficulty, name):
     updated_score = []
     newfile = 0
     scores = []
-    score = 0
     try:
         scores = open("scores.txt")
     except:
