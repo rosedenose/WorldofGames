@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  check:
+    image: alexeykag:WorldOfGames
+    volumes:
+      - data:/
+    restart: always
+    environment:
+    ports:
+      - "4444:4444"
