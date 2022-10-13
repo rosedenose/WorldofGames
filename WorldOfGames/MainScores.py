@@ -35,19 +35,19 @@ def present_score(player):
     if "0" in str(status):
         @app.route('/')
         def success():
-            a = f"""<html>    
+            good = f"""<html>    
                         <head>
                             <title>Scores Game</title>
                         </head>
                         <body>
-                        <h1>The score is <div id="score">{SCORE}</div></h1>
+                            <h1>The score is <div id="score">{SCORE}</div></h1>
                         </body>
                     </html>"""
-            return a, 200
+            return good, 200
     else:
         @app.route('/')
         def failure():
-            b = f"""<html>
+            bad = f"""<html>
                         <head>
                             <title>Scores Game</title>
                         </head>
@@ -55,7 +55,7 @@ def present_score(player):
                             <h1><div id="score" style="color:red">{ERROR}</div></h1>
                         </body>
                     </html>"""
-            return b, 200
+            return bad, 200
     app.run(host='0.0.0.0', port=4444)
 
 try:
