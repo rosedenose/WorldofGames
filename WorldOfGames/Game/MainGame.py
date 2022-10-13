@@ -1,12 +1,10 @@
 import GuessGame
 import MemoryGame
-import CurrencyRullette
+from WorldOfGames.Game import CurrencyRullette
 import SecretGame
 import Live
 import Score
 import MainScores
-from selenium import webdriver
-
 
 err = open("err.txt", "w")
 err.write("0")
